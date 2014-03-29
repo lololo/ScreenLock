@@ -8,6 +8,9 @@
 
 #import "GLDatabase.h"
 
+#warning chage to your own token
+#define STORE_TOKEN  @"password"
+
 NSString * pathForFile(NSString *filename);
 NSString * pathForFile(NSString *filename) {
     // 1
@@ -34,7 +37,7 @@ id loadData(NSString * filename) {
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] 
                                           initForReadingWithData:data];
         // 8
-        id retval = [unarchiver decodeObjectForKey:@"Password"];
+        id retval = [unarchiver decodeObjectForKey:STORE_TOKEN];
         [unarchiver finishDecoding];
         return retval;
     }
@@ -48,7 +51,7 @@ void saveData(id theData, NSString *filename) {
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]                           
                                   initForWritingWithMutableData:data];  
     // 11
-    [archiver encodeObject:theData forKey:@"Password"];
+    [archiver encodeObject:theData forKey:STORE_TOKEN];
     [archiver finishEncoding];
     // 12
     [data writeToFile:pathForFile(filename) atomically:YES];

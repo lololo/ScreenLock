@@ -12,16 +12,15 @@
 + (GLLockManager *)Share;
 //- (void)showLockView;
 
-/*! 设置密码 */
 - (void)setPassword;
 
-/*! 输入密码 */
 - (void)enterPasswd;
 
-/*! 重设密码 */
 - (void)ResetPasswd;
 
 - (void)save;
 
 - (void)lock;
+
+
 @end

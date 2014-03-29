@@ -84,7 +84,7 @@ static GLLockManager *share;
     needEnterTime = 2;
     self.mode = kLockModeSet;
     [self showLockView];
-    self.lockView.displayTextLabe.text = @"请设置密码";
+    self.lockView.displayTextLabe.text = NSLocalizedString(@"Set Password", @"Set Password");
 }
 
 - (void)setPasswordFinish
@@ -96,7 +96,7 @@ static GLLockManager *share;
 {
     self.mode = kLockModeEnter;
     [self showLockView];
-    self.lockView.displayTextLabe.text = @"请输入密码";
+    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the password", @"Enter the password");
 }
 
 - (void)enterpasswdFinsih:(BOOL)success
@@ -111,7 +111,7 @@ static GLLockManager *share;
     self.mode = kLockModeReset;
     needEnterTime = 3;
     [self showLockView];
-    self.lockView.displayTextLabe.text = @"请输入原密码";
+    self.lockView.displayTextLabe.text = NSLocalizedString(@"Reset Password", @"Reset Password");
 }
 
 - (void)save
@@ -158,19 +158,19 @@ static GLLockManager *share;
         case kLockModeSet:
         {
             if (needEnterTime == 2) {
-                self.lockView.displayTextLabe.text = @"请再次输入密码";
+                self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the password again", @"Enter the password again");
                 self.sPassWd = result;
                 needEnterTime--;
             }
             else if (needEnterTime == 1) {
                 if ([self.sPassWd isEqualToString:result]) {
-                    self.lockView.displayTextLabe.text = @"密码设置完成";
+                    self.lockView.displayTextLabe.text = NSLocalizedString(@"Set Password success", @"Set Password success");
                     [self save];
                     [self setPasswordFinish];
                     needEnterTime--;
                 }
                 else {
-                    self.lockView.displayTextLabe.text = @"两次输入密码不符，重新输入";
+                    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the password twice discrepancies, reset please", @"Enter the password twice discrepancies, reset please");
                     needEnterTime = 2;
                     self.sPassWd = nil;
                 }
@@ -184,7 +184,7 @@ static GLLockManager *share;
             }
             else {
                 [self enterpasswdFinsih:NO];
-                self.lockView.displayTextLabe.text = @"输入错误,重新输入";
+                self.lockView.displayTextLabe.text = NSLocalizedString(@"Input errors", @"Input errors");
             }
             break;
         }
@@ -193,7 +193,7 @@ static GLLockManager *share;
             
             if (needEnterTime == 3) {
                 if ([self.sPassWd isEqualToString:result]) {
-                    self.lockView.displayTextLabe.text = @"请输入新密码";
+                    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the new password", @"Enter the new password");
                     needEnterTime--;
                     self.mode = kLockModeSet;
                 }

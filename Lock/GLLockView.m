@@ -219,11 +219,10 @@ bool CGContextDotIsTouched(struct CGDot d,CGPoint p)
 {
     NSMutableString *sRes = [[NSMutableString alloc] init];
     for (int i = 0; i<selectedNumber; i++) {
-        printf("%i ",sellectedDots[i]->mark);
+        //printf("%i ",sellectedDots[i]->mark);
         [sRes appendString:[@(sellectedDots[i]->mark) stringValue]];
         sellectedDots[i] = NULL;
     }
-    printf("\n");
     if (self.delegate && [self.delegate respondsToSelector:@selector(lockViewResult:)]) {
         [self.delegate lockViewResult:sRes];
     }
