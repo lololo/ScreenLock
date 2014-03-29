@@ -96,7 +96,7 @@ static GLLockManager *share;
 {
     self.mode = kLockModeEnter;
     [self showLockView];
-    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the password", @"Enter the password");
+    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter password", @"Enter password");
 }
 
 - (void)enterpasswdFinsih:(BOOL)success
@@ -158,7 +158,7 @@ static GLLockManager *share;
         case kLockModeSet:
         {
             if (needEnterTime == 2) {
-                self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the password again", @"Enter the password again");
+                self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter password again", @"Enter password again");
                 self.sPassWd = result;
                 needEnterTime--;
             }
@@ -170,7 +170,7 @@ static GLLockManager *share;
                     needEnterTime--;
                 }
                 else {
-                    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the password twice discrepancies, reset please", @"Enter the password twice discrepancies, reset please");
+                    self.lockView.displayTextLabe.text = NSLocalizedString(@"discrepancies, reset please", @"discrepancies, reset please");
                     needEnterTime = 2;
                     self.sPassWd = nil;
                 }
@@ -193,7 +193,7 @@ static GLLockManager *share;
             
             if (needEnterTime == 3) {
                 if ([self.sPassWd isEqualToString:result]) {
-                    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter the new password", @"Enter the new password");
+                    self.lockView.displayTextLabe.text = NSLocalizedString(@"Enter new password", @"Enter new password");
                     needEnterTime--;
                     self.mode = kLockModeSet;
                 }
